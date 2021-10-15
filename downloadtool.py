@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from tkinter import *
-from tkinter.tix import *
 from tkinter.ttk import *
 from tkinter import filedialog
 from digi_downloadcontent import DownloadContent
@@ -115,7 +114,7 @@ class Application(Frame):
         self.frame_buttons = Frame(self.win)
         self.frame_buttons.grid(row = 6, column = 0, sticky = W, padx = 2, pady = 2)
 
-        self.startDownloadButton = Button(self.frame_buttons, text="Download material", command= lambda: self.startDownloadThread(self.digiResultsUrl.get("1.0",'end-1c'), self.selectedOCRFormat.get(), self.selectedImageFormat.get(), True, self.saveDirectoryPath.get(), self.statusText, self.createKeywordsGraph, self.setDownloadResumeItems))
+        self.startDownloadButton = Button(self.frame_buttons, text="Download material", command= lambda: self.startDownloadThread(self.digiResultsUrl.get("1.0",'end-1c'), self.selectedOCRFormat.get(), self.selectedImageFormat.get(), self.saveDirectoryPath.get(), self.statusText, self.createKeywordsGraph, self.setDownloadResumeItems))
         self.startDownloadButton.pack(side="left")
 
         self.cancelDownloadButton = Button(self.frame_buttons, text="Cancel download",command= lambda: self.cancelDownload())
@@ -146,10 +145,10 @@ class Application(Frame):
         self.createSaveDirectoryBrowser()
         self.createLogoFrame()
 
-    def startDownloadThread(self, digiResultsUrl, OCRformat, imageFormat, nomaxlimit, saveDirectoryPath, statusText, createKeywordsGraph, setDownloadResumeItems):
+    def startDownloadThread(self, digiResultsUrl, OCRformat, imageFormat, saveDirectoryPath, statusText, createKeywordsGraph, setDownloadResumeItems):
         self.queue = queue.Queue()
         if not self.downloadThreadStarted:
-            self.downloadThread = DownloadContent(self.queue, digiResultsUrl, OCRformat, imageFormat, nomaxlimit, saveDirectoryPath, statusText, createKeywordsGraph, setDownloadResumeItems, self.hitsData, self.totalPagesData, self.bindingsCsvData, self.lastBindingsData, self.lastBindingIndex, self.formatTemplates, self.downloadAllBindingPages.get(), self.directoryTrees[self.selectedTree.get()])
+            self.downloadThread = DownloadContent(self.queue, digiResultsUrl, OCRformat, imageFormat, saveDirectoryPath, statusText, createKeywordsGraph, setDownloadResumeItems, self.hitsData, self.totalPagesData, self.bindingsCsvData, self.lastBindingsData, self.lastBindingIndex, self.formatTemplates, self.downloadAllBindingPages.get(), self.directoryTrees[self.selectedTree.get()])
             self.downloadThread.daemon = True
             self.downloadThread.start()
             self.master.after(100, self.process_queue)
@@ -352,7 +351,7 @@ class Application(Frame):
                         hitsData["year"].insert(i, years[i])
                         hitsData["amount"].insert(i, 0)
                 self.totalPagesDf = pd.DataFrame({'Pages included in the search': totalPagesData["amount"],'Pages containing the search terms':hitsData["amount"]}, index=totalPagesData["year"])
-            self.totalPagesDf.index.name = "Vuosi"
+            self.totalPagesDf.index.name = "Year"
             self.df1 = self.totalPagesDf
 
             if self.joinExcels.get() == "1" and self.lastBindingIndex == -1:

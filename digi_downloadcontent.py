@@ -14,6 +14,7 @@ import itertools
 from socket import timeout
 import re
 import time
+import concurrent.futures
 
 pageprefix = "page-"
 
@@ -30,13 +31,12 @@ request_headers = {
 
 
 class DownloadContent(threading.Thread):
-  def __init__(self, queue, digiResultsUrl, OCRFormat, imageFormat, nomaxlimit, saveDirectoryPath, statusText, createKeywordsGraph, setDownloadResumeItems, hitsData, totalPagesData, bindingsCsvData, bindingsData, lastBindingIndex, formatTemplates, downloadAllBindingPages, selectedTree):
+  def __init__(self, queue, digiResultsUrl, OCRFormat, imageFormat, saveDirectoryPath, statusText, createKeywordsGraph, setDownloadResumeItems, hitsData, totalPagesData, bindingsCsvData, bindingsData, lastBindingIndex, formatTemplates, downloadAllBindingPages, selectedTree):
     threading.Thread.__init__(self)
     self.queue = queue
     self.digiResultsUrl = digiResultsUrl
     self.OCRFormat = OCRFormat
     self.imageFormat = imageFormat
-    self.nomaxlimit = nomaxlimit
     self.saveDirectoryPath = saveDirectoryPath
     self.statusText = statusText
     self.createKeywordsGraph = createKeywordsGraph
@@ -616,34 +616,22 @@ class DownloadContent(threading.Thread):
       self.downloadedPages += 1
       self.insertToStatus(self.currentBinding, self.totalBindings, self.formatSizeText(self.totalDownloadedData), self.formatSizeText(freeDiskSpace))
 
-
   def downloadBindingData(self, bindingid, localdir, imagePath, dataformat, imageFormat, issn, baseUrl, generalType, issueName, hitsByYear, bindingPageCounts, pageNumber, pdfUrl):
 
-    threads = []
-
     if self.downloadAllBindingPages != "1":
-      currentThread = threading.Thread(target=self.downloadData, args=(baseUrl, issueName, generalType, bindingid, localdir, imagePath, dataformat, imageFormat, pageNumber, pdfUrl))
-      currentThread.start()
-      threads.append(currentThread)
+      self.downloadData(baseUrl, issueName, generalType, bindingid, localdir, imagePath, dataformat, imageFormat, pageNumber, pdfUrl)
     else:
 
       pageCounter = 1
 
-      isPageListLarge =  bindingPageCounts > 100
+      futures = []
 
-      while (pageCounter < bindingPageCounts + 1):
+      with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+        while (pageCounter < bindingPageCounts + 1):
 
-        #download pdf file only once
-        if pageCounter > 1:
-          pdfUrl = ""
+          #download pdf file only once
+          if pageCounter > 1:
+            pdfUrl = ""
 
-        currentThread = threading.Thread(target=self.downloadData, args=(baseUrl, issueName, generalType, bindingid, localdir, imagePath, dataformat, imageFormat, pageCounter, pdfUrl))
-        currentThread.start()
-        threads.append(currentThread)
-        pageCounter += 1
-        
-        if (isPageListLarge):
-          time.sleep(0.1)
-
-    for thread in threads:
-      thread.join()
+          futures.append(executor.submit(self.downloadData, baseUrl, issueName, generalType, bindingid, localdir, imagePath, dataformat, imageFormat, pageCounter, pdfUrl))
+          pageCounter += 1
