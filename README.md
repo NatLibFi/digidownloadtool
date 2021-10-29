@@ -1,4 +1,4 @@
-![sosiaali_fi_small3.png](https://github.com/NatLibFi/digidownloadtool/blob/main/sosiaali_fi_small3.png?raw=true)![fi_EU_rgb_small2.png](https://github.com/NatLibFi/digidownloadtool/blob/main/fi_EU_rgb_small2.png?raw=true)
+![sosiaali_fi_small3.png](https://github.com/NatLibFi/digidownloadtool/blob/master/sosiaali_fi_small3.png?raw=true)![fi_EU_rgb_small2.png](https://github.com/NatLibFi/digidownloadtool/blob/master/fi_EU_rgb_small2.png?raw=true)
 
 # Digi download tool
 Digi download tool
