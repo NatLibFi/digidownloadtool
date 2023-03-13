@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-10-28 15:44+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=cp1252\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: csv_viewer.py:184
+msgid "Muutokset tallennettu csv-tiedostoon!"
+msgstr "Changes saved in the .csv file!"
+
+#: csv_viewer.py:189
+msgid "Tallennus csv-tiedostoon ep\344onnistui, sulje mahdollisesti avattuna oleva csv-tiedosto!"
+msgstr "Could not save into the .csv file. Please close the .csv file if it is open!"
+
+#: csv_viewer.py:225
+msgid "Kuvan poisto ei onnistunut! Tiedosto voi olla k\344yt\366ss\344."
+msgstr "Image could not be deleted! The file may be in use."
+
+#: csv_viewer.py:235
+msgid "Alton poisto ei onnistunut! Tiedosto voi olla k\344yt\366ss\344."
+msgstr "ALTO could not be deleted! The file may be in use."
+
+#: csv_viewer.py:292
+msgid "Valittuun sivuun liittyv\344 kommentti"
+msgstr "Comment related to the selected page"
+
+#: csv_viewer.py:347 csv_viewer.py:451 csv_viewer.py:512
+msgid "Tulosten yhteism\344\344r\344: "
+msgstr "Total results: "
+
+#: csv_viewer.py:415 csv_viewer.py:449
+msgid "Suodatettujen tulosten yhteism\344\344r\344: "
+msgstr "Total filtered results: "
+
+#: csv_viewer.py:418
+msgid "Annettu s\344\344nn\366llinen lauseke ei ollut toimiva."
+msgstr "The entered regular expression has errors."
+
+#: csv_viewer.py:420
+msgid "Suodatus ei tuottanut tuloksia."
+msgstr "The filtering produced no results."
+
+#: csv_viewer.py:422
+msgid "Suodatettujen tulosten yhteism\344\344r\344: 0"
+msgstr "Total filtered results: 0"
+
+#: csv_viewer.py:494
+msgid "Edellinen"
+msgstr "Previous"
+
+#: csv_viewer.py:506
+msgid "Seuraava"
+msgstr "Next"
+
+#: csv_viewer.py:525
+msgid "Osumaymp\344rist\366jen suodatus"
+msgstr "Filtering hit previews"
+
+#: csv_viewer.py:553
+msgid "Ladatun aineiston hakemisto"
+msgstr "Directory of downloaded data"
+
+#: csv_viewer.py:561
+msgid "csv-tiedosto"
+msgstr ".csv file"
+
+#: csv_viewer.py:597
+msgid "Valitse csv-tiedosto!"
+msgstr "Choose the .csv file!"
+
+#: csv_viewer.py:603
+msgid "Aloitetaan k\344sittely\344"
+msgstr "Initiating the processing"
+
+#: csv_viewer.py:610
+msgid "Valitse sijainti"
+msgstr "Choose the location"
+
+#: csv_viewer.py:613
+msgid "Valitse csv"
+msgstr "Choose the .csv"
+
+#: csv_viewer.py:646
+msgid "K\344sitell\344\344n sivua: "
+msgstr "Processing page: "
+
+#: csv_viewer.py:649
+msgid "Tarvittavia tietoja aineistojen tarkasteluun ei l\366ytynyt!"
+msgstr "Information required for viewing the data could not be found!"
+
+#: csv_viewer.py:668
+msgid "Poista valittu sivu"
+msgstr "Delete selected page"
+
+#: csv_viewer.py:717
+msgid "Tarkasteluty\366kalu"
+msgstr "Viewing Tool"
+
+#: csv_viewer.py:753
+msgid "Ei yhteytt\344 palvelimeen!"
+msgstr "No connection with server!"
+
+#: csv_viewer.py:766
+msgid "Luodaan k\344ytt\366liittym\344\344n osumaymp\344rist\366\344 sivulle: "
+msgstr "Creating a UI hit preview for page: "
+
+#: csv_viewer.py:772
+msgid "Csv-tiedostossa m\344\344ritelty\344 kuvatiedostoa ei l\366ytynyt!"
+msgstr "The image file determined in the .csv not found!"
+
+#: csv_viewer.py:841
+msgid "Etsit\344\344n ladattuja tiedostoja: "
+msgstr "Searching for downloaded files: "
+
+#: csv_viewer.py:928
+msgid " numero "
+msgstr " issue "
+
+#: csv_viewer.py:929
+msgid " sivu "
+msgstr " page "
+

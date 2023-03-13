@@ -1,0 +1,131 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-10-28 16:02+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+#: csv_viewer.py:184
+msgid "Muutokset tallennettu csv-tiedostoon!"
+msgstr ""
+
+#: csv_viewer.py:189
+msgid "Tallennus csv-tiedostoon epäonnistui, sulje mahdollisesti avattuna oleva csv-tiedosto!"
+msgstr ""
+
+#: csv_viewer.py:225
+msgid "Kuvan poisto ei onnistunut! Tiedosto voi olla käytössä."
+msgstr ""
+
+#: csv_viewer.py:235
+msgid "Alton poisto ei onnistunut! Tiedosto voi olla käytössä."
+msgstr ""
+
+#: csv_viewer.py:292
+msgid "Valittuun sivuun liittyvä kommentti"
+msgstr ""
+
+#: csv_viewer.py:347 csv_viewer.py:451 csv_viewer.py:512
+msgid "Tulosten yhteismäärä: "
+msgstr ""
+
+#: csv_viewer.py:415 csv_viewer.py:449
+msgid "Suodatettujen tulosten yhteismäärä: "
+msgstr ""
+
+#: csv_viewer.py:418
+msgid "Annettu säännöllinen lauseke ei ollut toimiva."
+msgstr ""
+
+#: csv_viewer.py:420
+msgid "Suodatus ei tuottanut tuloksia."
+msgstr ""
+
+#: csv_viewer.py:422
+msgid "Suodatettujen tulosten yhteismäärä: 0"
+msgstr ""
+
+#: csv_viewer.py:494
+msgid "Edellinen"
+msgstr ""
+
+#: csv_viewer.py:506
+msgid "Seuraava"
+msgstr ""
+
+#: csv_viewer.py:525
+msgid "Osumaympäristöjen suodatus"
+msgstr ""
+
+#: csv_viewer.py:553
+msgid "Ladatun aineiston hakemisto"
+msgstr ""
+
+#: csv_viewer.py:561
+msgid "csv-tiedosto"
+msgstr ""
+
+#: csv_viewer.py:597
+msgid "Valitse csv-tiedosto!"
+msgstr ""
+
+#: csv_viewer.py:603
+msgid "Aloitetaan käsittelyä"
+msgstr ""
+
+#: csv_viewer.py:610
+msgid "Valitse sijainti"
+msgstr ""
+
+#: csv_viewer.py:613
+msgid "Valitse csv"
+msgstr ""
+
+#: csv_viewer.py:646
+msgid "Käsitellään sivua: "
+msgstr ""
+
+#: csv_viewer.py:649
+msgid "Tarvittavia tietoja aineistojen tarkasteluun ei löytynyt!"
+msgstr ""
+
+#: csv_viewer.py:668
+msgid "Poista valittu sivu"
+msgstr ""
+
+#: csv_viewer.py:717
+msgid "Tarkastelutyökalu"
+msgstr ""
+
+#: csv_viewer.py:753
+msgid "Ei yhteyttä palvelimeen!"
+msgstr ""
+
+#: csv_viewer.py:766
+msgid "Luodaan käyttöliittymään osumaympäristöä sivulle: "
+msgstr ""
+
+#: csv_viewer.py:772
+msgid "Csv-tiedostossa määriteltyä kuvatiedostoa ei löytynyt!"
+msgstr ""
+
+#: csv_viewer.py:841
+msgid "Etsitään ladattuja tiedostoja: "
+msgstr ""
+
+#: csv_viewer.py:928
+msgid " numero "
+msgstr ""
+
+#: csv_viewer.py:929
+msgid " sivu "
+msgstr ""

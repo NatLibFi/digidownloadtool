@@ -15,6 +15,7 @@ from socket import timeout
 import re
 import time
 import concurrent.futures
+import gettext
 
 pageprefix = "page-"
 
@@ -24,14 +25,17 @@ dataformats = {
 }
 
 request_headers = {
-"User-Agent": "Digi aineistolataaja (englanti)",
-"Referer": "Digi aineistolataaja (englanti)",
-"Connection": "keep-alive" 
+"""User-Agent": _("Digi aineistolataaja 2.0"),
+"Referer": _("Digi aineistolataaja 2.0"),
+"Connection": "keep-alive" """
 }
+
+WORKERTHREADS = 5
 
 
 class DownloadContent(threading.Thread):
-  def __init__(self, queue, digiResultsUrl, OCRFormat, imageFormat, saveDirectoryPath, statusText, createKeywordsGraph, setDownloadResumeItems, hitsData, totalPagesData, bindingsCsvData, bindingsData, lastBindingIndex, formatTemplates, downloadAllBindingPages, selectedTree):
+  def __init__(self, queue, digiResultsUrl, OCRFormat, imageFormat, saveDirectoryPath, statusText, createKeywordsGraph, setDownloadResumeItems, hitsData, totalPagesData, bindingsCsvData, bindingsData, lastBindingIndex, formatTemplates, downloadAllBindingPages, selectedTree, currentLanguage):
+    global request_headers
     threading.Thread.__init__(self)
     self.queue = queue
     self.digiResultsUrl = digiResultsUrl
@@ -56,8 +60,6 @@ class DownloadContent(threading.Thread):
     self.downloadAllBindingPages = downloadAllBindingPages
     self.directoryTree = selectedTree 
     self.downloadTimes = []
-    self.downloadedPages = 0
-
 
     self.formatTemplates = formatTemplates
     if self.formatTemplates:
@@ -67,20 +69,32 @@ class DownloadContent(threading.Thread):
 
     self.event = threading.Event()
 
+    #get localization
+    el = gettext.translation('base', localedir='translations', languages=[currentLanguage])
+    el.install()
+    _ = el.gettext
+    #_ = gettext.gettext
+
+    request_headers = {
+    "User-Agent": _("Digi aineistolataaja 2.0"),
+    "Referer": _("Digi aineistolataaja 2.0"),
+    "Connection": "keep-alive" 
+    }
+
   def run(self):
       global statusTextWidget
       statusTextWidget = self.statusText
-      statusTextWidget['text'] = "Download will start soon..."
+      statusTextWidget['text'] = _("Lataus alkaa pian...")
       statusTextWidget.config(foreground="black")
 
       settingError = False
 
-      if "digi.kansalliskirjasto.fi" not in self.digiResultsUrl:
-        statusTextWidget['text'] = "The address does not contain the address digi.kansalliskirjasto.fi!"
+      if "digi.kansalliskirjasto.fi/search?" not in self.digiResultsUrl:
+        statusTextWidget['text'] = _("Osoite ei sisällä digi.kansalliskirjasto.fi osoitetta!")
         statusTextWidget.config(foreground="red")
         settingError = True
       elif not self.OCRFormat and not self.imageFormat:
-        statusTextWidget['text'] = "Select the format of the material to be downloaded!"
+        statusTextWidget['text'] = _("Valitse ladattavan aineiston formaatti!")
         statusTextWidget.config(foreground="red")
         settingError = True
       elif self.bindingsDataStartIndex == -1:
@@ -91,16 +105,16 @@ class DownloadContent(threading.Thread):
 
       if self.event.is_set() and not settingError:
         if not self.downloadError:
-          statusTextWidget['text'] = "Download paused!"
+          statusTextWidget['text'] = _("Lataus keskeytetty!")
         
         if not hasattr(self, 'lastBindingsData'):
           self.lastBindingsData = []
 
         self.setDownloadResumeItems(self.lastBindingIndex, self.lastBindingsData, self.hitsData, self.totalPagesData, self.bindingsCsvData, self.formatTemplates)
       elif not settingError and not self.noDownloadContent:
-        statusTextWidget['text'] = statusTextWidget['text'] + '\n' + "Download complete!"
+        statusTextWidget['text'] = statusTextWidget['text'] + '\n' + _("Lataus valmis!")
       elif self.noDownloadContent:
-        statusTextWidget['text'] = statusTextWidget['text'] + '\n' + "No materials to download!"
+        statusTextWidget['text'] = statusTextWidget['text'] + '\n' + _("Ei ladattavia aineistoja, voit tarkistaa saatavilla olevat aineistot työkalun käyttöohjeesta.")
       if not self.downloadError:
         self.queue.put("Finished")
       else:
@@ -116,27 +130,27 @@ class DownloadContent(threading.Thread):
     return '%s %s' % (f, suffixes[i])
 
 
-  def insertToStatus(self, currentBinding, totalBindings, downloadedData, freeDiskSpace):
+  def insertToStatus(self, downloadedBindings, totalBindings, downloadedData, freeDiskSpace):
 
     statusText = ""
 
     if downloadedData and freeDiskSpace:
-      statusText = self.downloadLimitText + "Downloading search result: " + str(currentBinding) + '/' + str(totalBindings) + '\n' + "Downloaded: " + str(downloadedData) + '\n' + "Free disk space: " + freeDiskSpace
+      statusText = self.downloadLimitText + _("Ladataan hakutulosta: ") + str(self.downloadedBindings) + '/' + str(totalBindings) + '\n' + _("Ladattu: ") + str(downloadedData) + '\n' + _("Vapaa levytila: ") + freeDiskSpace
     else:
-      statusText = self.downloadLimitText + "Downloading search result: " + str(currentBinding) + '/' + str(totalBindings)
+      statusText = self.downloadLimitText + _("Ladataan hakutulosta: ") + str(self.downloadedBindings) + '/' + str(totalBindings)
 
     if self.downloadTimes:
       averageTime = sum(self.downloadTimes) / len(self.downloadTimes)
-      resultsLeft = totalBindings - currentBinding
-      timeEstimate = round(resultsLeft * averageTime / 60, 1)
-      statusText = statusText + '\n' + "Estimated download duration: " + str(timeEstimate) + " min"
+      resultsLeft = totalBindings - downloadedBindings#currentBinding
+      timeEstimate = round((resultsLeft * averageTime / 60) / WORKERTHREADS, 1)
+      statusText = statusText + '\n' + _("Latauksen arvioitu kesto: ") + str(timeEstimate) + " min"
 
 
     if self.containedCopyrightData:
-      statusText = statusText + '\n' + "The use of the material may be restricted."
+      statusText = statusText + '\n' + _("Aineistoon voi liittyä käytön rajoituksia.")
 
     if self.event.is_set():
-      statusText = statusText + '\n' + "Download will be paused when the download of the most recent search result is complete."
+      statusText = statusText + '\n' + _("Lataus keskeytyy, kun viimeisin hakutulos on ladattu loppuun.")
 
     statusTextWidget['text'] = statusText
 
@@ -187,7 +201,7 @@ class DownloadContent(threading.Thread):
           isFirstSearch = False
           totalResults = result["totalResults"]
 
-        statusTextWidget['text'] = "Downloading information on the materials: " + str(len(currentRows)) + "/" + str(totalResults)
+        statusTextWidget['text'] = _("Ladataan aineistojen tietoja: ") + str(len(currentRows)) + "/" + str(totalResults)
 
       except HTTPError as e:
         errorRetries += 1
@@ -201,7 +215,7 @@ class DownloadContent(threading.Thread):
         errorRetries += 1
 
       if errorRetries == 3:
-        statusTextWidget['text'] = "No connection with server!"
+        statusTextWidget['text'] = _("Ei yhteyttä palvelimeen!")
         statusTextWidget.config(foreground="red")
         self.downloadError = True
         self.event.set()
@@ -244,6 +258,7 @@ class DownloadContent(threading.Thread):
       urls = []
       copyrights = []
       references = []
+      searchUrls = []
 
       self.hitsData = {}
       self.totalPagesData = {}
@@ -252,12 +267,12 @@ class DownloadContent(threading.Thread):
       if "hitsByYear" in result and result["hitsByYear"] != None:
         self.hitsData["year"] = list(result["hitsByYear"].keys())
         self.hitsData["amount"] = list(result["hitsByYear"].values())
-        resultsTitle = "Pages containing the search terms"
+        resultsTitle = _("Sivuja, joilla hakusanat esiintyvät")
       
       if "totalHitsByYear" in result and result["totalHitsByYear"] != None:
         self.totalPagesData["year"] = list(result["totalHitsByYear"].keys())
         self.totalPagesData["amount"] = list(result["totalHitsByYear"].values())
-        resultsTitle = "Pages included in the search"
+        resultsTitle = _("Sivuja haussa")
 
       self.bindingsData = OrderedDict()
 
@@ -269,7 +284,7 @@ class DownloadContent(threading.Thread):
         currentUrl = ""
 
         downloadSuccess = False
-        statusTextWidget['text'] = "Preparing the materials to be downloaded: " + str(bindingCounter + 1) + "/" + str(len(rows))
+        statusTextWidget['text'] = _("Valmistellaan ladattavia aineistoja: ") + str(bindingCounter + 1) + "/" + str(len(rows))
 
         bindingIds.append(bindingId)
 
@@ -310,7 +325,8 @@ class DownloadContent(threading.Thread):
         
         if "textHighlights" in row: 
           if "text" in row["textHighlights"]:
-            hitAreas.append(','.join(row["textHighlights"]["text"]).replace('\n', ' ').replace('\r', ''))
+            #add three '#' to separate different highlights, so that is possible to separate them from each other when using csv-file.
+            hitAreas.append('###'.join(row["textHighlights"]["text"]).replace('\n\n', ' ').replace('\r', ''))
           else:
             hitAreas.append("")
 
@@ -329,10 +345,10 @@ class DownloadContent(threading.Thread):
           copyRightStatus = row["copyrightWarnings"]
 
           if copyRightStatus == True:
-            copyRightStatus = "The use of the material may be restricted."
+            copyRightStatus = _("Aineistoon voi liittyä käytön rajoituksia.")
             self.containedCopyrightData = True
           else:
-            copyRightStatus = "No copyright."
+            copyRightStatus = _("Ei tekijänoikeutta.")
 
           copyrights.append(copyRightStatus)
         else:
@@ -367,9 +383,12 @@ class DownloadContent(threading.Thread):
           issueText = ", nro " + str(issue)
 
 
-        referenceText = bindingTitle +  ", " + referenceDate +  issueText + ", s. " + str(pageNumber) + "\n" + currentUrl + "\n" + "Digital materials of the National Library of Finland"
+        referenceText = bindingTitle +  ", " + referenceDate +  issueText + ", s. " + str(pageNumber) + "\n" + currentUrl + "\n" + _("Kansalliskirjaston digitaaliset aineistot")
         
         references.append(referenceText)
+
+        #add search url to csv, so it is later possible to see what search was used
+        searchUrls.append(self.digiResultsUrl)
 
         bindingCounter += 1
       
@@ -387,6 +406,7 @@ class DownloadContent(threading.Thread):
       self.bindingsCsvData["terms"] = terms
       self.bindingsCsvData["url"] = urls
       self.bindingsCsvData["copyrights"] = copyrights
+      self.bindingsCsvData["searchUrls"] = searchUrls
       self.bindingsCsvData["references"] = references
 
       self.bindingsDataStartIndex = 0
@@ -401,90 +421,103 @@ class DownloadContent(threading.Thread):
 
     self.currentBinding = self.bindingsDataStartIndex
     self.totalDownloadedData = 0
+    self.downloadedBindings = self.totalBindings - len(self.bindingsData)
 
-    for bindingIndex, binding in enumerate(self.bindingsData):
+    self.downloadedBindings += 1
+    
+    self.futures = []
 
-      if not self.event.is_set():
+    with concurrent.futures.ThreadPoolExecutor(max_workers=WORKERTHREADS) as executor:
 
-        currentData = self.bindingsData[binding]
-        bindingId = currentData[0]
-        issn = currentData[1]
-        year = currentData[2]
-        baseUrl = currentData[3]
-        generalType = currentData[4]
-        bindingDate = currentData[5]
-        bindingNO = currentData[6]
-        hitsByYear = currentData[7]
-        pageCounts = currentData[8]
-        pageNumber = currentData[9]
-        bindingTitle = currentData[10]
-        pdfUrl = currentData[11]
+      for bindingIndex, binding in enumerate(self.bindingsData):
 
-        #removes special characters from title name
-        pathTitle = re.sub(r'[^a-zåäöA-ZÅÄÖ0-9 ]', '', bindingTitle)
+        if not self.event.is_set():
 
-        issnPath = ""
-        fullPath = ""
-        
-        if self.directoryTree == 0:
-          issnPath = saveDirectoryPath + "/" + pathTitle[0:40]  + "_" + bindingId + "/"
-          fullPath = issnPath
-        elif self.directoryTree == 1:
-          issnPath = saveDirectoryPath + "/" + issn + "/"
-          fullPath = issnPath
-        elif self.directoryTree == 2:
-          issnPath = saveDirectoryPath + "/" + pathTitle[0:40]  + "_" + bindingId + "/"
-          fullPath = issnPath + str(year) + "/"
-        elif self.directoryTree == 3:
-          issnPath = saveDirectoryPath + "/" + issn + "/"
-          fullPath = issnPath + str(year) + "/"
-        elif self.directoryTree == 4:
-          issnPath = saveDirectoryPath + "/" + str(year) + "/"
-          fullPath = issnPath + str(issn) + "/"
-        elif self.directoryTree == 5:
-          issnPath = saveDirectoryPath + "/" + str(year) + "/"
-          fullPath = issnPath + pathTitle[0:40]  + "_" + bindingId + "/"
+          currentData = self.bindingsData[binding]
+          bindingId = currentData[0]
+          issn = currentData[1]
+          year = currentData[2]
+          baseUrl = currentData[3]
+          generalType = currentData[4]
+          bindingDate = currentData[5]
+          bindingNO = currentData[6]
+          hitsByYear = currentData[7]
+          pageCounts = currentData[8]
+          pageNumber = currentData[9]
+          bindingTitle = currentData[10]
+          pdfUrl = currentData[11]
 
-        if not os.path.isdir(issnPath):
-          #creates own subdir
-          os.mkdir(issnPath)
+          #removes special characters from title name
+          pathTitle = re.sub(r'[^a-zåäöA-ZÅÄÖ0-9 ]', '', bindingTitle)
 
-        ocrPath = ""
-        if ocrFormat:
-          ocrPath = os.path.join(fullPath, ocrFormat)
-
-          if not os.path.exists(ocrPath):
-            os.makedirs(ocrPath)
-
-        imagePath = ""
-        if imageFormat == "jpg":
-          imagePath = os.path.join(fullPath, "jpg")
-        elif imageFormat == "pdf":
-          imagePath = os.path.join(fullPath, "pdf")
+          issnPath = ""
+          fullPath = ""
           
-        if imagePath:
-          if not os.path.exists(imagePath):
-            os.makedirs(imagePath)
+          if self.directoryTree == 0:
+            issnPath = saveDirectoryPath + "/" + pathTitle[0:40]  + "_" + bindingId + "/"
+            fullPath = issnPath
+          elif self.directoryTree == 1:
+            issnPath = saveDirectoryPath + "/" + issn + "/"
+            fullPath = issnPath
+          elif self.directoryTree == 2:
+            issnPath = saveDirectoryPath + "/" + pathTitle[0:40]  + "_" + bindingId + "/"
+            fullPath = issnPath + str(year) + "/"
+          elif self.directoryTree == 3:
+            issnPath = saveDirectoryPath + "/" + issn + "/"
+            fullPath = issnPath + str(year) + "/"
+          elif self.directoryTree == 4:
+            issnPath = saveDirectoryPath + "/" + str(year) + "/"
+            fullPath = issnPath + str(issn) + "/"
+          elif self.directoryTree == 5:
+            issnPath = saveDirectoryPath + "/" + str(year) + "/"
+            fullPath = issnPath + pathTitle[0:40]  + "_" + bindingId + "/"
 
-        self.currentBinding = self.currentBinding + 1
-        issueName = self.createIssueName(issn, bindingDate, bindingNO, generalType)
+          if not os.path.isdir(issnPath):
+            #creates own subdir
+            os.mkdir(issnPath)
 
-        startTime = time.time()
-        self.downloadBindingData(bindingId, ocrPath, imagePath, ocrFormat, imageFormat, issn, baseUrl, generalType, issueName, hitsByYear, pageCounts, pageNumber, pdfUrl)
-        endTime = time.time()
-        self.downloadTimes.append(endTime-startTime)
+          ocrPath = ""
+          if ocrFormat:
+            ocrPath = os.path.join(fullPath, ocrFormat)
 
-        if self.downloadError:
+            if not os.path.exists(ocrPath):
+              os.makedirs(ocrPath)
+
+          imagePath = ""
+          if imageFormat == "jpg":
+            imagePath = os.path.join(fullPath, "jpg")
+          elif imageFormat == "pdf":
+            imagePath = os.path.join(fullPath, "pdf")
+            
+          if imagePath:
+            if not os.path.exists(imagePath):
+              os.makedirs(imagePath)
+
+          self.currentBinding = self.currentBinding + 1
+          issueName = self.createIssueName(issn, bindingDate, bindingNO, generalType)
+
+          #startTime = time.time()
+          #self.downloadBindingData(bindingId, ocrPath, imagePath, ocrFormat, imageFormat, issn, baseUrl, generalType, issueName, hitsByYear, pageCounts, pageNumber, pdfUrl)
+          self.futures.append(executor.submit(self.downloadBindingData,bindingId, ocrPath, imagePath, ocrFormat, imageFormat, issn, baseUrl, generalType, issueName, hitsByYear, pageCounts, pageNumber, pdfUrl, self.currentBinding))
+
+        else:
           self.lastBindingIndex = bindingIndex + self.bindingsDataStartIndex
           self.lastBindingsData = self.orginalBindingsData
           break
-        else:
-          self.lastBindingIndex = bindingIndex + self.bindingsDataStartIndex + 1
+
+      failedDownloadIndex = -1
+
+      for future in concurrent.futures.as_completed(self.futures):
+        result = future.result()
+        #sets lastBindingIndex to smallest binding index that failed to download. 
+        if not result[1] and (failedDownloadIndex > result[0] or failedDownloadIndex == -1):
+          self.lastBindingIndex = result[0] - 1
+          failedDownloadIndex = result[0]
           self.lastBindingsData = self.orginalBindingsData
-      else:
-        self.lastBindingIndex = bindingIndex + self.bindingsDataStartIndex
-        self.lastBindingsData = self.orginalBindingsData
-        break 
+        #if there has not been failed downloads, set largest downloaded binding index to lastbindingIndex
+        elif failedDownloadIndex == -1 and self.lastBindingIndex < result[0]:
+          self.lastBindingIndex = result[0]
+          self.lastBindingsData = self.orginalBindingsData
 
   def urlretrieve2(self, url, localfile):
     # Adapted from https://stackoverflow.com/a/4028894/364931
@@ -499,7 +532,7 @@ class DownloadContent(threading.Thread):
 
     #handle errors
     except Exception as e:
-      print("No connection with server!")
+      print(_("Ei yhteyttä palvelimeen!"))
       return 0
 
     if not os.path.exists(localfile):
@@ -517,10 +550,10 @@ class DownloadContent(threading.Thread):
     else:
       return "_".join([issn, bindingDate])
 
-
   def downloadData(self, baseUrl, issuename, generalType, bindingid, localdir, imagePath, dataformat, imageFormat, pageNumber, pdfUrl):
 
     downloadedDataSize = 0
+    downloadError = False
 
     imageUri = baseUrl + self.pageImageTemplate.replace("{{page}}", str(pageNumber))
 
@@ -552,9 +585,9 @@ class DownloadContent(threading.Thread):
             print("ERR, couldn't download {0}".format(contentUri), True)
             print ("retries: " + str(retries))
             if retries == 3:
-              self.downloadError = True
+              downloadError = True
               self.event.set()
-              statusTextWidget['text'] = "No connection with server!"
+              statusTextWidget['text'] = _("Ei yhteyttä palvelimeen!")
               statusTextWidget.config(foreground="red")
 
           retries = retries + 1
@@ -579,9 +612,9 @@ class DownloadContent(threading.Thread):
           print("ERR, couldn't download {0}".format(imageUri), True)
           print ("retries: " + str(retries))
           if retries == 3:
-            self.downloadError = True
+            downloadError = True
             self.event.set()
-            statusTextWidget['text'] = "No connection with server!"
+            statusTextWidget['text'] = _("Ei yhteyttä palvelimeen!")
             statusTextWidget.config(foreground="red")
         
         retries = retries + 1
@@ -603,35 +636,56 @@ class DownloadContent(threading.Thread):
           print("ERR, couldn't download {0}".format(imageUri), True)
           print ("retries: " + str(retries))
           if retries == 3:
-            self.downloadError = True
+            downloadError = True
             self.event.set()
-            statusTextWidget['text'] = "No connection with server!"
+            statusTextWidget['text'] = _("Ei yhteyttä palvelimeen!")
             statusTextWidget.config(foreground="red")
         
         retries = retries + 1
 
-    if not self.downloadError:
+
+
+    if not downloadError:
       freeDiskSpace = psutil.disk_usage(self.saveDirectoryPath).free
       self.totalDownloadedData = self.totalDownloadedData + downloadedDataSize
-      self.downloadedPages += 1
-      self.insertToStatus(self.currentBinding, self.totalBindings, self.formatSizeText(self.totalDownloadedData), self.formatSizeText(freeDiskSpace))
+      self.insertToStatus(self.downloadedBindings, self.totalBindings, self.formatSizeText(self.totalDownloadedData), self.formatSizeText(freeDiskSpace))
 
-  def downloadBindingData(self, bindingid, localdir, imagePath, dataformat, imageFormat, issn, baseUrl, generalType, issueName, hitsByYear, bindingPageCounts, pageNumber, pdfUrl):
+    return downloadSuccess
 
-    if self.downloadAllBindingPages != "1":
-      self.downloadData(baseUrl, issueName, generalType, bindingid, localdir, imagePath, dataformat, imageFormat, pageNumber, pdfUrl)
-    else:
+  def downloadBindingData(self, bindingid, localdir, imagePath, dataformat, imageFormat, issn, baseUrl, generalType, issueName, hitsByYear, bindingPageCounts, pageNumber, pdfUrl, currentBinding):
+    
+    downloadSuccess = True
 
-      pageCounter = 1
+    if not self.event.is_set():
 
-      futures = []
+      startTime = time.time()
+      
 
-      with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+      if self.downloadAllBindingPages != "1":
+        downloadSuccess = self.downloadData(baseUrl, issueName, generalType, bindingid, localdir, imagePath, dataformat, imageFormat, pageNumber, pdfUrl)
+      else:
+
+        pageCounter = 1
+
         while (pageCounter < bindingPageCounts + 1):
 
           #download pdf file only once
           if pageCounter > 1:
             pdfUrl = ""
 
-          futures.append(executor.submit(self.downloadData, baseUrl, issueName, generalType, bindingid, localdir, imagePath, dataformat, imageFormat, pageCounter, pdfUrl))
+          if not self.downloadData(baseUrl, issueName, generalType, bindingid, localdir, imagePath, dataformat, imageFormat, pageCounter, pdfUrl):
+            downloadSuccess = False
           pageCounter += 1
+
+      endTime = time.time()
+      self.downloadTimes.append(endTime-startTime)
+
+    else:
+      downloadSuccess = False
+
+    if downloadSuccess:
+      freeDiskSpace = psutil.disk_usage(self.saveDirectoryPath).free
+      self.insertToStatus(self.downloadedBindings, self.totalBindings, self.formatSizeText(self.totalDownloadedData), self.formatSizeText(freeDiskSpace))
+      self.downloadedBindings += 1
+
+    return [currentBinding, downloadSuccess]

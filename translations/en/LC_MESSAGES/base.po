@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-12-08 17:06+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=cp1252\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: aineistolataaja.py:50
+msgid "Ei yhteytt\344 palvelimeen!"
+msgstr "No connection with server!"
+
+#: aineistolataaja.py:68
+msgid "Latausty\366kalu 2.0"
+msgstr "Download Tool 2.0"
+
+#: aineistolataaja.py:87
+msgid "https://digi.kansalliskirjasto.fi/downloadtool-update-checker?userVersion=2.0"
+msgstr "https://digi.kansalliskirjasto.fi/downloadtool-update-checker?userVersion=2.0&set_language=en"
+
+#: aineistolataaja.py:155 aineistolataaja.py:224 aineistolataaja.py:246
+msgid "Jatka latausta"
+msgstr "Resume download"
+
+#: aineistolataaja.py:173 aineistolataaja.py:235 aineistolataaja.py:254
+msgid "Lataa aineisto"
+msgstr "Download material"
+
+#: aineistolataaja.py:177
+msgid "Peruuta lataus"
+msgstr "Cancel download"
+
+#: aineistolataaja.py:180
+msgid "Tarkastele ladattua aineistoa"
+msgstr "View the downloaded data"
+
+#: aineistolataaja.py:217
+msgid "Keskeyt\344 lataus"
+msgstr "Pause download"
+
+#: aineistolataaja.py:292
+msgid "KK_logo_small2.png"
+msgstr "en_KK_logo_small2.png"
+
+#: aineistolataaja.py:300
+msgid "sosiaali_fi_small3.png"
+msgstr "en_sosiaali_small3.png"
+
+#: aineistolataaja.py:308
+msgid "fi_EU_rgb_small2.png"
+msgstr "en_EU_rgb_small2.png"
+
+#: aineistolataaja.py:318
+msgid "Digin hakutulokset sis\344lt\344v\344n sivun osoite"
+msgstr "Address of the Digi page with the search results"
+
+#: aineistolataaja.py:343
+msgid "Tekstiaineiston formaatti"
+msgstr "Text format"
+
+#: aineistolataaja.py:349
+msgid "ALTO xml"
+msgstr "ALTO xml"
+
+#: aineistolataaja.py:350
+msgid "teksti"
+msgstr "text"
+
+#: aineistolataaja.py:356
+msgid "Kuva-aineistot"
+msgstr "Pictures"
+
+#: aineistolataaja.py:362
+msgid "jpg kuvat"
+msgstr "jpg pictures"
+
+#: aineistolataaja.py:369
+msgid "Lataa kaikki niteen sivut"
+msgstr "Download all pages of the volume"
+
+#: aineistolataaja.py:400
+msgid "Aineiston tallennussijainti"
+msgstr "Material storage location"
+
+#: aineistolataaja.py:406
+msgid "Valitse sijainti"
+msgstr "Choose location"
+
+#: aineistolataaja.py:409
+msgid "Hakemistopuun rakenne"
+msgstr "Directory tree structure"
+
+#: aineistolataaja.py:438 aineistolataaja.py:445 aineistolataaja.py:452
+msgid "Sivuja haussa"
+msgstr "Pages included in the search"
+
+#: aineistolataaja.py:452
+msgid "Sivuja joilla hakusanat esiintyv\344t"
+msgstr "Pages containing the search terms"
+
+#: aineistolataaja.py:453
+msgid "Vuosi"
+msgstr "Year"
+
+#: aineistolataaja.py:501
+msgid "Tallenna hakutulosten sivujen m\344\344r\344t"
+msgstr "Save the number of search result pages"
+
+#: aineistolataaja.py:501
+msgid "hakutulosten_sivut.csv"
+msgstr "search_result_pages.csv"
+
+#: aineistolataaja.py:504
+msgid "Tallenna ladattujen aineistojen tiedot"
+msgstr "Save the information on downloaded materials"
+
+#: aineistolataaja.py:504 aineistolataaja.py:525
+msgid "ladatut_aineistot.csv"
+msgstr "downloaded_materials.csv"
+
+#: aineistolataaja.py:511
+msgid "Yhdist\344 tulevien latausten csv-tiedostot"
+msgstr "Merge the CSV files of future downloads"
+
+#: aineistolataaja.py:529
+msgid "Latauksen tila"
+msgstr "Download status"
+
+#: digi_downloadcontent.py:79 digi_downloadcontent.py:80
+msgid "Digi aineistolataaja 2.0"
+msgstr "Digi aineistolataaja 2.0 (englanti)"
+
+#: digi_downloadcontent.py:87
+msgid "Lataus alkaa pian..."
+msgstr "Download will start soon..."
+
+#: digi_downloadcontent.py:93
+msgid "Osoite ei sis\344ll\344 digi.kansalliskirjasto.fi osoitetta!"
+msgstr "The address does not contain the address digi.kansalliskirjasto.fi!"
+
+#: digi_downloadcontent.py:97
+msgid "Valitse ladattavan aineiston formaatti!"
+msgstr "Select the format of the material to be downloaded!"
+
+#: digi_downloadcontent.py:108
+msgid "Lataus keskeytetty!"
+msgstr "Download paused!"
+
+#: digi_downloadcontent.py:115
+msgid "Lataus valmis!"
+msgstr "Download complete!"
+
+#: digi_downloadcontent.py:117
+msgid "Ei ladattavia aineistoja, voit tarkistaa saatavilla olevat aineistot ty\366kalun k\344ytt\366ohjeesta."
+msgstr "No downloadable data. Check the data available in the Download Tool User Guide."
+
+#: digi_downloadcontent.py:138
+msgid "Ladattu: "
+msgstr "Downloaded: "
+
+#: digi_downloadcontent.py:138
+msgid "Vapaa levytila: "
+msgstr "Free disk space: "
+
+#: digi_downloadcontent.py:138 digi_downloadcontent.py:140
+msgid "Ladataan hakutulosta: "
+msgstr "Downloading search result: "
+
+#: digi_downloadcontent.py:146
+msgid "Latauksen arvioitu kesto: "
+msgstr "Estimated download duration: "
+
+#: digi_downloadcontent.py:150 digi_downloadcontent.py:348
+msgid "Aineistoon voi liitty\344 k\344yt\366n rajoituksia."
+msgstr "The use of the material may be restricted."
+
+#: digi_downloadcontent.py:153
+msgid "Lataus keskeytyy, kun viimeisin hakutulos on ladattu loppuun."
+msgstr "Download will be paused when the download of the most recent search result is complete."
+
+#: digi_downloadcontent.py:204
+msgid "Ladataan aineistojen tietoja: "
+msgstr "Downloading information on the materials: "
+
+#: digi_downloadcontent.py:218 digi_downloadcontent.py:535
+#: digi_downloadcontent.py:590 digi_downloadcontent.py:617
+#: digi_downloadcontent.py:641
+msgid "Ei yhteytt\344 palvelimeen!"
+msgstr "No connection with server!"
+
+#: digi_downloadcontent.py:270
+msgid "Sivuja, joilla hakusanat esiintyv\344t"
+msgstr "Pages containing the search terms"
+
+#: digi_downloadcontent.py:275
+msgid "Sivuja haussa"
+msgstr "Pages included in the search"
+
+#: digi_downloadcontent.py:287
+msgid "Valmistellaan ladattavia aineistoja: "
+msgstr "Preparing the materials to be downloaded: "
+
+#: digi_downloadcontent.py:351
+msgid "Ei tekij\344noikeutta."
+msgstr "No copyright."
+
+#: digi_downloadcontent.py:386
+msgid "Kansalliskirjaston digitaaliset aineistot"
+msgstr "Digital materials of the National Library of Finland"
+
+

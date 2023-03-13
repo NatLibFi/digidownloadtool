@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-12-08 17:06+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: aineistolataaja.py:50
+msgid "Ei yhteyttä palvelimeen!"
+msgstr "Ej kontakt med servern!"
+
+#: aineistolataaja.py:68
+msgid "Lataustyökalu 2.0"
+msgstr "Nedladdningsverktyg 2.0"
+
+#: aineistolataaja.py:87
+msgid "https://digi.kansalliskirjasto.fi/downloadtool-update-checker?userVersion=2.0"
+msgstr "https://digi.kansalliskirjasto.fi/downloadtool-update-checker?userVersion=2.0&set_language=sv"
+
+#: aineistolataaja.py:155 aineistolataaja.py:224 aineistolataaja.py:246
+msgid "Jatka latausta"
+msgstr "Fortsätt nedladdningen"
+
+#: aineistolataaja.py:173 aineistolataaja.py:235 aineistolataaja.py:254
+msgid "Lataa aineisto"
+msgstr "Ladda ned materialet"
+
+#: aineistolataaja.py:177
+msgid "Peruuta lataus"
+msgstr "Ångra nedladdningen"
+
+#: aineistolataaja.py:180
+msgid "Tarkastele ladattua aineistoa"
+msgstr "Visa nedladdat material"
+
+#: aineistolataaja.py:217
+msgid "Keskeytä lataus"
+msgstr "Avbryt nedladdningen"
+
+#: aineistolataaja.py:292
+msgid "KK_logo_small2.png"
+msgstr "KK_logo_small2.png"
+
+#: aineistolataaja.py:300
+msgid "sosiaali_fi_small3.png"
+msgstr "sosiaali_sv2.png"
+
+#: aineistolataaja.py:308
+msgid "fi_EU_rgb_small2.png"
+msgstr "sv_EU_rgb2.png"
+
+#: aineistolataaja.py:318
+msgid "Digin hakutulokset sisältävän sivun osoite"
+msgstr "Adressen till sidan som innehåller Digis sökresultat"
+
+#: aineistolataaja.py:343
+msgid "Tekstiaineiston formaatti"
+msgstr "Textmaterialets format"
+
+#: aineistolataaja.py:349
+msgid "ALTO xml"
+msgstr "ALTO xml"
+
+#: aineistolataaja.py:350
+msgid "teksti"
+msgstr "text"
+
+#: aineistolataaja.py:356
+msgid "Kuva-aineistot"
+msgstr "Bildmaterial"
+
+#: aineistolataaja.py:362
+msgid "jpg kuvat"
+msgstr "jpg bilder"
+
+#: aineistolataaja.py:369
+msgid "Lataa kaikki niteen sivut"
+msgstr "Ladda ned alla sidor i bandet"
+
+#: aineistolataaja.py:400
+msgid "Aineiston tallennussijainti"
+msgstr "Plats där materialet ska lagras"
+
+#: aineistolataaja.py:406
+msgid "Valitse sijainti"
+msgstr "Välj plats"
+
+#: aineistolataaja.py:409
+msgid "Hakemistopuun rakenne"
+msgstr "Katalogträdets struktur"
+
+#: aineistolataaja.py:438 aineistolataaja.py:445 aineistolataaja.py:452
+msgid "Sivuja haussa"
+msgstr "Antal sidor i sökningen"
+
+#: aineistolataaja.py:452
+msgid "Sivuja joilla hakusanat esiintyvät"
+msgstr "Antal sidor som innehåller sökorden"
+
+#: aineistolataaja.py:453
+msgid "Vuosi"
+msgstr "År"
+
+#: aineistolataaja.py:501
+msgid "Tallenna hakutulosten sivujen määrät"
+msgstr "Lagra sökresultatens sidantal"
+
+#: aineistolataaja.py:501
+msgid "hakutulosten_sivut.csv"
+msgstr "sökresultatens_sidantal.csv"
+
+#: aineistolataaja.py:504
+msgid "Tallenna ladattujen aineistojen tiedot"
+msgstr "Lagra de nedladdade materialens data"
+
+#: aineistolataaja.py:504 aineistolataaja.py:525
+msgid "ladatut_aineistot.csv"
+msgstr "nedladdade_materialen.csv"
+
+#: aineistolataaja.py:511
+msgid "Yhdistä tulevien latausten csv-tiedostot"
+msgstr "Kombinera nedladdningens CSV-filer"
+
+#: aineistolataaja.py:529
+msgid "Latauksen tila"
+msgstr "Nedladdningens status"
+
+#: digi_downloadcontent.py:79 digi_downloadcontent.py:80
+msgid "Digi aineistolataaja 2.0"
+msgstr "Digi aineistolataaja 2.0 (ruotsi)"
+
+#: digi_downloadcontent.py:87
+msgid "Lataus alkaa pian..."
+msgstr "Nedladdningen börjar strax..."
+
+#: digi_downloadcontent.py:93
+msgid "Osoite ei sisällä digi.kansalliskirjasto.fi osoitetta!"
+msgstr "Adressen innehåller inte adressen digi.kansalliskirjasto.fi!"
+
+#: digi_downloadcontent.py:97
+msgid "Valitse ladattavan aineiston formaatti!"
+msgstr "Välj format för materialet som ska nedladdas!"
+
+#: digi_downloadcontent.py:108
+msgid "Lataus keskeytetty!"
+msgstr "Nedladdningen avbruten!"
+
+#: digi_downloadcontent.py:115
+msgid "Lataus valmis!"
+msgstr "Nedladdningen klar!"
+
+#: digi_downloadcontent.py:117
+msgid "Ei ladattavia aineistoja, voit tarkistaa saatavilla olevat aineistot työkalun käyttöohjeesta."
+msgstr "Inga material att ladda ned, du kan kontrollera tillgängliga material i bruksanvisningen för verktyget."
+
+#: digi_downloadcontent.py:138
+msgid "Ladattu: "
+msgstr "Nedladdat: "
+
+#: digi_downloadcontent.py:138
+msgid "Vapaa levytila: "
+msgstr "Fritt diskutrymme: "
+
+#: digi_downloadcontent.py:138 digi_downloadcontent.py:140
+msgid "Ladataan hakutulosta: "
+msgstr "Sökresultatet nedladdas: "
+
+#: digi_downloadcontent.py:146
+msgid "Latauksen arvioitu kesto: "
+msgstr "Uppskattad återstående nedladdningstid: "
+
+#: digi_downloadcontent.py:150 digi_downloadcontent.py:348
+msgid "Aineistoon voi liittyä käytön rajoituksia."
+msgstr "Restriktioner kan gälla för användningen av materialet."
+
+#: digi_downloadcontent.py:153
+msgid "Lataus keskeytyy, kun viimeisin hakutulos on ladattu loppuun."
+msgstr "Nedladdningen upphör när det sista sökresultatet nedladdats."
+
+#: digi_downloadcontent.py:204
+msgid "Ladataan aineistojen tietoja: "
+msgstr "Materialens data nedladdas: "
+
+#: digi_downloadcontent.py:218 digi_downloadcontent.py:535
+#: digi_downloadcontent.py:590 digi_downloadcontent.py:617
+#: digi_downloadcontent.py:641
+msgid "Ei yhteyttä palvelimeen!"
+msgstr "Ej kontakt med servern!"
+
+#: digi_downloadcontent.py:270
+msgid "Sivuja, joilla hakusanat esiintyvät"
+msgstr "Antal sidor som innehåller sökorden"
+
+#: digi_downloadcontent.py:275
+msgid "Sivuja haussa"
+msgstr "Antal sidor i sökningen"
+
+#: digi_downloadcontent.py:287
+msgid "Valmistellaan ladattavia aineistoja: "
+msgstr "Materialen förbereds för nedladdning: "
+
+#: digi_downloadcontent.py:351
+msgid "Ei tekijänoikeutta."
+msgstr "Ej upphovsrätt."
+
+#: digi_downloadcontent.py:386
+msgid "Kansalliskirjaston digitaaliset aineistot"
+msgstr "Nationalbibliotekets digitala material"
+
+

@@ -1,0 +1,137 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-12-12 14:24+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=cp1252\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: aineistolataaja.py:50
+msgid "Ei yhteytt\344 palvelimeen!"
+msgstr ""
+
+#: aineistolataaja.py:69
+msgid "Latausty\366kalu 2.0"
+msgstr ""
+
+#: aineistolataaja.py:88
+msgid "https://digi.kansalliskirjasto.fi/downloadtool-update-checker?userVersion=2.0"
+msgstr ""
+
+#: aineistolataaja.py:155 aineistolataaja.py:225 aineistolataaja.py:247
+msgid "Jatka latausta"
+msgstr ""
+
+#: aineistolataaja.py:173 aineistolataaja.py:236 aineistolataaja.py:255
+msgid "Lataa aineisto"
+msgstr ""
+
+#: aineistolataaja.py:177
+msgid "Peruuta lataus"
+msgstr ""
+
+#: aineistolataaja.py:181
+msgid "Tarkastele ladattua aineistoa"
+msgstr ""
+
+#: aineistolataaja.py:217
+msgid "Keskeyt\344 lataus"
+msgstr ""
+
+#: aineistolataaja.py:294
+msgid "KK_logo_small2.png"
+msgstr ""
+
+#: aineistolataaja.py:302
+msgid "sosiaali_fi_small3.png"
+msgstr ""
+
+#: aineistolataaja.py:310
+msgid "fi_EU_rgb_small2.png"
+msgstr ""
+
+#: aineistolataaja.py:320
+msgid "Digin hakutulokset sis\344lt\344v\344n sivun osoite"
+msgstr ""
+
+#: aineistolataaja.py:345
+msgid "Tekstiaineiston formaatti"
+msgstr ""
+
+#: aineistolataaja.py:351
+msgid "ALTO xml"
+msgstr ""
+
+#: aineistolataaja.py:352
+msgid "teksti"
+msgstr ""
+
+#: aineistolataaja.py:358
+msgid "Kuva-aineistot"
+msgstr ""
+
+#: aineistolataaja.py:364
+msgid "jpg kuvat"
+msgstr ""
+
+#: aineistolataaja.py:371
+msgid "Lataa kaikki niteen sivut"
+msgstr ""
+
+#: aineistolataaja.py:402
+msgid "Aineiston tallennussijainti"
+msgstr ""
+
+#: aineistolataaja.py:408
+msgid "Valitse sijainti"
+msgstr ""
+
+#: aineistolataaja.py:411
+msgid "Hakemistopuun rakenne"
+msgstr ""
+
+#: aineistolataaja.py:440 aineistolataaja.py:447 aineistolataaja.py:454
+msgid "Sivuja haussa"
+msgstr ""
+
+#: aineistolataaja.py:454
+msgid "Sivuja joilla hakusanat esiintyv\344t"
+msgstr ""
+
+#: aineistolataaja.py:455
+msgid "Vuosi"
+msgstr ""
+
+#: aineistolataaja.py:503
+msgid "Tallenna hakutulosten sivujen m\344\344r\344t"
+msgstr ""
+
+#: aineistolataaja.py:503
+msgid "hakutulosten_sivut.csv"
+msgstr ""
+
+#: aineistolataaja.py:506
+msgid "Tallenna ladattujen aineistojen tiedot"
+msgstr ""
+
+#: aineistolataaja.py:506 aineistolataaja.py:527
+msgid "ladatut_aineistot.csv"
+msgstr ""
+
+#: aineistolataaja.py:513
+msgid "Yhdist\344 tulevien latausten csv-tiedostot"
+msgstr ""
+
+#: aineistolataaja.py:531
+msgid "Latauksen tila"
+msgstr ""
+

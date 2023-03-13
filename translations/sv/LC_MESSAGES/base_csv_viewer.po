@@ -1,0 +1,131 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-10-28 16:02+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+#: csv_viewer.py:184
+msgid "Muutokset tallennettu csv-tiedostoon!"
+msgstr "Ändringarna har sparats i CSV-filen!"
+
+#: csv_viewer.py:189
+msgid "Tallennus csv-tiedostoon epäonnistui, sulje mahdollisesti avattuna oleva csv-tiedosto!"
+msgstr "Kunde inte spara i CSV-filen, stäng möjligen öppen CSV-fil!"
+
+#: csv_viewer.py:225
+msgid "Kuvan poisto ei onnistunut! Tiedosto voi olla käytössä."
+msgstr "Bilden kunde inte raderas! Filen kan vara i bruk."
+
+#: csv_viewer.py:235
+msgid "Alton poisto ei onnistunut! Tiedosto voi olla käytössä."
+msgstr "Alto kunde inte raderas! Filen kan vara i bruk."
+
+#: csv_viewer.py:292
+msgid "Valittuun sivuun liittyvä kommentti"
+msgstr "Kommentar om den valda sidan"
+
+#: csv_viewer.py:347 csv_viewer.py:451 csv_viewer.py:512
+msgid "Tulosten yhteismäärä: "
+msgstr "Resultat sammanlagt: "
+
+#: csv_viewer.py:415 csv_viewer.py:449
+msgid "Suodatettujen tulosten yhteismäärä: "
+msgstr "Filtrerade resultat sammanlagt: "
+
+#: csv_viewer.py:418
+msgid "Annettu säännöllinen lauseke ei ollut toimiva."
+msgstr "Det angivna reguljära uttrycket fungerade inte."
+
+#: csv_viewer.py:420
+msgid "Suodatus ei tuottanut tuloksia."
+msgstr "Filtreringen gav inga resultat."
+
+#: csv_viewer.py:422
+msgid "Suodatettujen tulosten yhteismäärä: 0"
+msgstr "Filtrerade resultat sammanlagt: 0"
+
+#: csv_viewer.py:494
+msgid "Edellinen"
+msgstr "Föregående"
+
+#: csv_viewer.py:506
+msgid "Seuraava"
+msgstr "Nästa"
+
+#: csv_viewer.py:525
+msgid "Osumaympäristöjen suodatus"
+msgstr "Filtrering av träffkontexter"
+
+#: csv_viewer.py:553
+msgid "Ladatun aineiston hakemisto"
+msgstr "Katalog för det nedladdade materialet"
+
+#: csv_viewer.py:561
+msgid "csv-tiedosto"
+msgstr "CSV-fil"
+
+#: csv_viewer.py:597
+msgid "Valitse csv-tiedosto!"
+msgstr "Välj CSV-fil!"
+
+#: csv_viewer.py:603
+msgid "Aloitetaan käsittelyä"
+msgstr "Bearbetning inleds"
+
+#: csv_viewer.py:610
+msgid "Valitse sijainti"
+msgstr "Välj plats"
+
+#: csv_viewer.py:613
+msgid "Valitse csv"
+msgstr "Välj CSV"
+
+#: csv_viewer.py:646
+msgid "Käsitellään sivua: "
+msgstr "Bearbetar sidan: "
+
+#: csv_viewer.py:649
+msgid "Tarvittavia tietoja aineistojen tarkasteluun ei löytynyt!"
+msgstr "Nödvändiga data för att visa material hittades inte!"
+
+#: csv_viewer.py:668
+msgid "Poista valittu sivu"
+msgstr "Ta bort vald sida"
+
+#: csv_viewer.py:717
+msgid "Tarkastelutyökalu"
+msgstr "Visningsverktyg"
+
+#: csv_viewer.py:753
+msgid "Ei yhteyttä palvelimeen!"
+msgstr "Ej kontakt med servern!"
+
+#: csv_viewer.py:766
+msgid "Luodaan käyttöliittymään osumaympäristöä sivulle: "
+msgstr "Skapar träffkontext i användargränssnittet för sidan: "
+
+#: csv_viewer.py:772
+msgid "Csv-tiedostossa määriteltyä kuvatiedostoa ei löytynyt!"
+msgstr "Bildfilen som anges i CSV-filen hittades inte!"
+
+#: csv_viewer.py:841
+msgid "Etsitään ladattuja tiedostoja: "
+msgstr "Söker nedladdade filer: "
+
+#: csv_viewer.py:928
+msgid " numero "
+msgstr " nummer "
+
+#: csv_viewer.py:929
+msgid " sivu "
+msgstr " sida "

@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-12-08 15:05+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=cp1252\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: csv_viewer.py:184
+msgid "Muutokset tallennettu csv-tiedostoon!"
+msgstr ""
+
+#: csv_viewer.py:189
+msgid "Tallennus csv-tiedostoon ep\344onnistui, sulje mahdollisesti avattuna oleva csv-tiedosto!"
+msgstr ""
+
+#: csv_viewer.py:225
+msgid "Kuvan poisto ei onnistunut! Tiedosto voi olla k\344yt\366ss\344."
+msgstr ""
+
+#: csv_viewer.py:235
+msgid "Alton poisto ei onnistunut! Tiedosto voi olla k\344yt\366ss\344."
+msgstr ""
+
+#: csv_viewer.py:292
+msgid "Valittuun sivuun liittyv\344 kommentti"
+msgstr ""
+
+#: csv_viewer.py:347 csv_viewer.py:451 csv_viewer.py:512
+msgid "Tulosten yhteism\344\344r\344: "
+msgstr ""
+
+#: csv_viewer.py:415 csv_viewer.py:449
+msgid "Suodatettujen tulosten yhteism\344\344r\344: "
+msgstr ""
+
+#: csv_viewer.py:418
+msgid "Annettu s\344\344nn\366llinen lauseke ei ollut toimiva."
+msgstr ""
+
+#: csv_viewer.py:420
+msgid "Suodatus ei tuottanut tuloksia."
+msgstr ""
+
+#: csv_viewer.py:422
+msgid "Suodatettujen tulosten yhteism\344\344r\344: 0"
+msgstr ""
+
+#: csv_viewer.py:494
+msgid "Edellinen"
+msgstr ""
+
+#: csv_viewer.py:506
+msgid "Seuraava"
+msgstr ""
+
+#: csv_viewer.py:525
+msgid "Osumaymp\344rist\366jen suodatus"
+msgstr ""
+
+#: csv_viewer.py:553
+msgid "Ladatun aineiston hakemisto"
+msgstr ""
+
+#: csv_viewer.py:561
+msgid "csv-tiedosto"
+msgstr ""
+
+#: csv_viewer.py:597
+msgid "Valitse csv-tiedosto!"
+msgstr ""
+
+#: csv_viewer.py:603
+msgid "Aloitetaan k\344sittely\344"
+msgstr ""
+
+#: csv_viewer.py:610
+msgid "Valitse sijainti"
+msgstr ""
+
+#: csv_viewer.py:613
+msgid "Valitse csv"
+msgstr ""
+
+#: csv_viewer.py:646
+msgid "K\344sitell\344\344n sivua: "
+msgstr ""
+
+#: csv_viewer.py:649
+msgid "Tarvittavia tietoja aineistojen tarkasteluun ei l\366ytynyt!"
+msgstr ""
+
+#: csv_viewer.py:668
+msgid "Poista valittu sivu"
+msgstr ""
+
+#: csv_viewer.py:717
+msgid "Tarkasteluty\366kalu"
+msgstr ""
+
+#: csv_viewer.py:753
+msgid "Ei yhteytt\344 palvelimeen!"
+msgstr ""
+
+#: csv_viewer.py:766
+msgid "Luodaan k\344ytt\366liittym\344\344n osumaymp\344rist\366\344 sivulle: "
+msgstr ""
+
+#: csv_viewer.py:772
+msgid "Csv-tiedostossa m\344\344ritelty\344 kuvatiedostoa ei l\366ytynyt!"
+msgstr ""
+
+#: csv_viewer.py:841
+msgid "Etsit\344\344n ladattuja tiedostoja: "
+msgstr ""
+
+#: csv_viewer.py:928
+msgid " numero "
+msgstr ""
+
+#: csv_viewer.py:929
+msgid " sivu "
+msgstr ""
+
+

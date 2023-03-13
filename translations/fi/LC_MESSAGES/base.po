@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2022-12-08 17:06+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: aineistolataaja.py:50
+msgid "Ei yhteyttä palvelimeen!"
+msgstr ""
+
+#: aineistolataaja.py:68
+msgid "Lataustyökalu 2.0"
+msgstr ""
+
+#: aineistolataaja.py:87
+msgid "https://digi.kansalliskirjasto.fi/downloadtool-update-checker?userVersion=2.0"
+msgstr ""
+
+#: aineistolataaja.py:155 aineistolataaja.py:224 aineistolataaja.py:246
+msgid "Jatka latausta"
+msgstr ""
+
+#: aineistolataaja.py:173 aineistolataaja.py:235 aineistolataaja.py:254
+msgid "Lataa aineisto"
+msgstr ""
+
+#: aineistolataaja.py:177
+msgid "Peruuta lataus"
+msgstr ""
+
+#: aineistolataaja.py:180
+msgid "Tarkastele ladattua aineistoa"
+msgstr ""
+
+#: aineistolataaja.py:217
+msgid "Keskeytä lataus"
+msgstr ""
+
+#: aineistolataaja.py:292
+msgid "KK_logo_small2.png"
+msgstr ""
+
+#: aineistolataaja.py:300
+msgid "sosiaali_fi_small3.png"
+msgstr ""
+
+#: aineistolataaja.py:308
+msgid "fi_EU_rgb_small2.png"
+msgstr ""
+
+#: aineistolataaja.py:318
+msgid "Digin hakutulokset sisältävän sivun osoite"
+msgstr ""
+
+#: aineistolataaja.py:343
+msgid "Tekstiaineiston formaatti"
+msgstr ""
+
+#: aineistolataaja.py:349
+msgid "ALTO xml"
+msgstr ""
+
+#: aineistolataaja.py:350
+msgid "teksti"
+msgstr ""
+
+#: aineistolataaja.py:356
+msgid "Kuva-aineistot"
+msgstr ""
+
+#: aineistolataaja.py:362
+msgid "jpg kuvat"
+msgstr ""
+
+#: aineistolataaja.py:369
+msgid "Lataa kaikki niteen sivut"
+msgstr ""
+
+#: aineistolataaja.py:400
+msgid "Aineiston tallennussijainti"
+msgstr ""
+
+#: aineistolataaja.py:406
+msgid "Valitse sijainti"
+msgstr ""
+
+#: aineistolataaja.py:409
+msgid "Hakemistopuun rakenne"
+msgstr ""
+
+#: aineistolataaja.py:438 aineistolataaja.py:445 aineistolataaja.py:452
+msgid "Sivuja haussa"
+msgstr ""
+
+#: aineistolataaja.py:452
+msgid "Sivuja joilla hakusanat esiintyvät"
+msgstr ""
+
+#: aineistolataaja.py:453
+msgid "Vuosi"
+msgstr ""
+
+#: aineistolataaja.py:501
+msgid "Tallenna hakutulosten sivujen määrät"
+msgstr ""
+
+#: aineistolataaja.py:501
+msgid "hakutulosten_sivut.csv"
+msgstr ""
+
+#: aineistolataaja.py:504
+msgid "Tallenna ladattujen aineistojen tiedot"
+msgstr ""
+
+#: aineistolataaja.py:504 aineistolataaja.py:525
+msgid "ladatut_aineistot.csv"
+msgstr ""
+
+#: aineistolataaja.py:511
+msgid "Yhdistä tulevien latausten csv-tiedostot"
+msgstr ""
+
+#: aineistolataaja.py:529
+msgid "Latauksen tila"
+msgstr ""
+
+#: digi_downloadcontent.py:79 digi_downloadcontent.py:80
+msgid "Digi aineistolataaja 2.0"
+msgstr ""
+
+#: digi_downloadcontent.py:87
+msgid "Lataus alkaa pian..."
+msgstr ""
+
+#: digi_downloadcontent.py:93
+msgid "Osoite ei sisällä digi.kansalliskirjasto.fi osoitetta!"
+msgstr ""
+
+#: digi_downloadcontent.py:97
+msgid "Valitse ladattavan aineiston formaatti!"
+msgstr ""
+
+#: digi_downloadcontent.py:108
+msgid "Lataus keskeytetty!"
+msgstr ""
+
+#: digi_downloadcontent.py:115
+msgid "Lataus valmis!"
+msgstr ""
+
+#: digi_downloadcontent.py:117
+msgid "Ei ladattavia aineistoja, voit tarkistaa saatavilla olevat aineistot työkalun käyttöohjeesta."
+msgstr ""
+
+#: digi_downloadcontent.py:138
+msgid "Ladattu: "
+msgstr ""
+
+#: digi_downloadcontent.py:138
+msgid "Vapaa levytila: "
+msgstr ""
+
+#: digi_downloadcontent.py:138 digi_downloadcontent.py:140
+msgid "Ladataan hakutulosta: "
+msgstr ""
+
+#: digi_downloadcontent.py:146
+msgid "Latauksen arvioitu kesto: "
+msgstr ""
+
+#: digi_downloadcontent.py:150 digi_downloadcontent.py:348
+msgid "Aineistoon voi liittyä käytön rajoituksia."
+msgstr ""
+
+#: digi_downloadcontent.py:153
+msgid "Lataus keskeytyy, kun viimeisin hakutulos on ladattu loppuun."
+msgstr ""
+
+#: digi_downloadcontent.py:204
+msgid "Ladataan aineistojen tietoja: "
+msgstr ""
+
+#: digi_downloadcontent.py:218 digi_downloadcontent.py:535
+#: digi_downloadcontent.py:590 digi_downloadcontent.py:617
+#: digi_downloadcontent.py:641
+msgid "Ei yhteyttä palvelimeen!"
+msgstr ""
+
+#: digi_downloadcontent.py:270
+msgid "Sivuja, joilla hakusanat esiintyvät"
+msgstr ""
+
+#: digi_downloadcontent.py:275
+msgid "Sivuja haussa"
+msgstr ""
+
+#: digi_downloadcontent.py:287
+msgid "Valmistellaan ladattavia aineistoja: "
+msgstr ""
+
+#: digi_downloadcontent.py:351
+msgid "Ei tekijänoikeutta."
+msgstr ""
+
+#: digi_downloadcontent.py:386
+msgid "Kansalliskirjaston digitaaliset aineistot"
+msgstr ""
+
+
